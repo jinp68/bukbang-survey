@@ -200,6 +200,13 @@
 <div class="wrap">
   <form id="surveyForm">
 
+    <!-- 이름 (선택) -->
+    <div class="card">
+      <p class="q-label"><span class="num" style="background:var(--teal)">0</span> 이름 <span style="font-weight:400;color:var(--muted);font-size:13px">(선택 · 익명 가능)</span></p>
+      <input type="text" name="name" maxlength="40" placeholder="이름을 적으시거나 비워두셔도 됩니다"
+        style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-size:15px;font-family:inherit;color:var(--text);">
+    </div>
+
     <!-- 강사 평가 -->
     <div class="card">
       <p class="section-title"><span class="num">1</span> 통선학교 강사 평가</p>
@@ -281,7 +288,7 @@
 
 <script>
   // ▼▼▼ 여기에 Apps Script 웹앱 URL을 붙여넣으세요 ▼▼▼
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzqHEzfvsr-liClTTpRLnxrKbqXeMS0SSK9b7le6HsyeBxnI-9rLNaaxtUzF8wer-t6CA/exec";
+  const SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
   // ▲▲▲ 위 한 줄만 바꾸면 됩니다 ▲▲▲
 
   // 평점 라디오 버튼 생성 (1~5)
@@ -313,6 +320,7 @@
 
     const form = e.target;
     const data = {
+      name: form.name.value,
       r_friedmann: (form.r_friedmann.value || ''),
       r_kim: (form.r_kim.value || ''),
       r_twr: (form.r_twr.value || ''),
